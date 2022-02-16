@@ -18,8 +18,6 @@ app.use(cors(corsOptions))
 var mongoose = require("mongoose")
 mongoose.connect(config.dbConnection, {useNewUrlParser: true, useUnifiedTopology: true})
 
-// console.log(mongoose.connection)
-
 app.use(express.json())
 app.use(passport.initialize())
 app.use((err, req, res, next)=>{

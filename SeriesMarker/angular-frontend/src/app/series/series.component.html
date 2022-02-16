@@ -1,0 +1,63 @@
+<h1 style="text-align: center;">Welcome to <span>SeriesMarker</span>!</h1>
+<div style="display: flex;">
+    <div style="width: 70vw;">
+        <div style="margin-bottom: 10px;">
+            <input type="text" [(ngModel)]="title" placeholder="Title">
+            <input type="number" [(ngModel)]="year" placeholder="Year">
+            <input type="number" [(ngModel)]="season" placeholder="Season">
+            <input type="number" [(ngModel)]="episode" placeholder="Episode">
+            <button class="save-button" (click)="saveSerie()">Save</button>
+        </div>
+        <div class="table-div">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Season</th>
+                    <th>Episode</th>
+                    <th></th>
+                </tr>
+                <tbody>
+                    <tr *ngFor='let serie of series'>
+                        <td style="cursor: pointer;" (click)="selectSerie(serie)">
+                            {{serie.title}}
+                        </td>
+                        <td>
+                            <span *ngIf="serie.year">{{serie.year}}</span>
+                        </td>
+                        <td>
+                            <button class="inc-dec-button" (click)="decSeason(serie)"> <fa-icon [icon]="faMinus"></fa-icon> </button>
+                            {{serie.season}}
+                            <button class="inc-dec-button" (click)="incSeason(serie)"> <fa-icon [icon]="faPlus"></fa-icon> </button>
+                        </td>
+                        <td>
+                            <button class="inc-dec-button" (click)="decEpisode(serie)"> <fa-icon [icon]="faMinus"></fa-icon> </button>
+                           {{serie.episode}}
+                            <button class="inc-dec-button" (click)="incEpisode(serie)"> <fa-icon [icon]="faPlus"></fa-icon> </button>
+                        </td>
+                        <td>
+                            <fa-icon style="cursor: pointer;" (click)="removeSerie(serie)" [icon]="faTrash"></fa-icon>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="serieInfo" style="width: 30vw; text-align: center;">
+        <img [(src)]="serieInfo.Poster">
+        <div style="background: gold; color: black; border-radius: 10px; padding: 10px; text-align: left;">
+            <h3>{{serieInfo.Title}} {{serieInfo.Year}}</h3>
+            <p>
+                <b>Genre:</b> {{serieInfo.Genre}}
+                <br>
+                <b>Director:</b> {{serieInfo.Director}}
+                <br>
+                <b>Actors:</b> {{serieInfo.Actors}}
+                <br>
+                <b>IMDB:</b> {{serieInfo.imdbRating}}
+                <br><br>
+                {{serieInfo.Plot}}
+            </p>
+        </div>
+    </div>
+</div>

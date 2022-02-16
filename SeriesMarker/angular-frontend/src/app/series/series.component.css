@@ -1,0 +1,89 @@
+h1 {
+    font-size: 50px;
+    color: white;
+    background: black;
+}
+
+h1 > span {
+    color: gold;
+}
+
+.table-div {
+    max-height: 70vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+.table-div::-webkit-scrollbar {
+    display: none;
+  }
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    height: 30px;
+    border-radius: 40px;
+    margin-right: 10px;
+    margin-left: 5px;
+    max-width: 130px;
+    background: black;
+    color: gold;
+    border-color: gold;
+}
+
+tr {
+    background: gold;
+}
+
+th, td {
+    height: 30px;
+}
+
+tbody > tr {
+    color: gold;
+    background: black;
+}
+
+tbody > tr:hover {
+    color: black;
+    background-color: gold;
+}
+
+.save-button {
+    width: 80px;
+    height: 30px;
+    font-weight: 700;
+    background: gold;
+    border-radius: 40px;
+    border: none;
+}
+
+.inc-dec-button {
+    background: gold;
+    border-color: black;
+    color: black;
+    margin: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder {
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder {
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }

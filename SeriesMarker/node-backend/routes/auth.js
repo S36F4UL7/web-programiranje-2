@@ -7,7 +7,6 @@ var router = express.Router()
 
 router.post("/register", (req, res) =>{
     var user = new User();
-    user.name = req.body.name;
     user.email = req.body.email;
     
     user.setPassword(req.body.password);
@@ -25,7 +24,9 @@ router.post("/register", (req, res) =>{
 
 })
 
-router.post("/login", passport.authenticate('local', {session: false}) , async (req, res) =>{
+router.post("/login", 
+    passport.authenticate('local', {session: false}) , 
+    async (req, res) =>{
     
     var user = await User.findOne({email: req.body.email})
     var token = user.generateJwt();
